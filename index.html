@@ -1,224 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serge Bougang Kamgang - DevOps Cloud Engineer Resume</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #333;
-            line-height: 1.35;
-        }
-        body {
-            background-color: #555;
-            padding: 20px;
-        }
-        .page {
-            width: 8.5in;
-            height: 11in;
-            background: #fff;
-            margin: 0 auto;
-            padding: 0.45in 0.5in;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        header {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 8px;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 22px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #2c3e50;
-            margin-bottom: 2px;
-        }
-        .subtitle {
-            font-size: 13px;
-            font-weight: 600;
-            color: #16a085;
-            margin-bottom: 4px;
-        }
-        .contact-info {
-            font-size: 10.5px;
-            color: #555;
-        }
-        .contact-info span {
-            margin: 0 6px;
-        }
-        section {
-            margin-bottom: 8px;
-        }
-        h2 {
-            font-size: 11.5px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #bdc3c7;
-            padding-bottom: 2px;
-            margin-bottom: 5px;
-            color: #2c3e50;
-            letter-spacing: 0.5px;
-        }
-        p, li {
-            font-size: 10.5px;
-        }
-        ul {
-            padding-left: 15px;
-            margin-top: 2px;
-        }
-        li {
-            margin-bottom: 2px;
-        }
-        .job {
-            margin-bottom: 6px;
-        }
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 11px;
-            margin-bottom: 1px;
-        }
-        .job-subheader {
-            display: flex;
-            justify-content: space-between;
-            font-style: italic;
-            font-size: 10.5px;
-            color: #555;
-            margin-bottom: 2px;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px 10px;
-        }
-        .skills-grid div {
-            font-size: 10.5px;
-        }
-        .skills-grid strong {
-            color: #2c3e50;
-        }
-        .summary-text {
-            font-size: 10.5px;
-            text-align: justify;
-        }
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-            }
-            .page {
-                box-shadow: none;
-                margin: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdoul Aziz Abdou | Cloud Engineer</title>
+<style>
+  @page { size: Letter; margin: 0.55in; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.38;
+  }
+  .resume { max-width: 850px; margin: 28px auto; padding: 0 34px 35px; }
+  header { text-align: center; }
+  h1 { margin: 0; font-size: 27px; letter-spacing: 1.4px; color: #111827; }
+  .title { margin-top: 3px; font-size: 16px; font-weight: 700; color: #138a78; }
+  .contact { margin-top: 7px; font-size: 9.5pt; color: #444; }
+  .contact a { color: inherit; text-decoration: none; }
+  hr { border: 0; border-top: 1px solid #b8b8b8; margin: 14px 0 17px; }
+  h2 {
+    margin: 15px 0 7px;
+    color: #17365d;
+    font-size: 13px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+  }
+  p { margin: 0; }
+  .summary { text-align: left; }
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 28px;
+  }
+  .skill b { color: #17365d; }
+  .job, .project { margin-bottom: 12px; }
+  .job-head, .project-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-weight: 700;
+  }
+  .job-title { color: #222; }
+  .date { white-space: nowrap; color: #444; font-weight: 600; }
+  .company { margin-top: 1px; color: #555; font-style: italic; }
+  ul { margin: 4px 0 0 18px; padding: 0; }
+  li { margin: 2px 0; }
+  .project-head { color: #222; }
+  .project-date { white-space: nowrap; font-weight: 600; color: #555; }
+  .impact { margin-top: 3px; }
+  .simple-list { margin: 0; padding-left: 18px; }
+  .simple-list li { margin: 2px 0; }
+  .edu { margin-bottom: 6px; }
+  .edu-title { font-weight: 700; }
+  .muted { color: #555; }
+  @media print {
+    body { font-size: 10pt; }
+    .resume { margin: 0 auto; padding: 0; max-width: none; }
+    a { color: inherit; }
+  }
+  @media (max-width: 650px) {
+    .resume { padding: 0 18px 25px; margin: 18px auto; }
+    .skills { grid-template-columns: 1fr; }
+    .job-head, .project-head { display: block; }
+    .date, .project-date { display: block; margin-top: 2px; }
+    h1 { font-size: 23px; }
+  }
+</style>
 </head>
 <body>
-    <div class="page">
-        <div>
-            <!-- Header -->
-            <header>
-                <h1>Serge  Kamgang</h1>
-                <div class="subtitle">Senior DevOps & Cloud Engineer</div>
-                <div class="contact-info">
-                    Houston, TX <span>|</span> +1 (555) 019-2834 <span>|</span> professional@email.com <span>|</span> linkedin.com/in/sergebougang <span>|</span> github.com/sergebougang
-                </div>
-            </header>
-            <!-- Professional Summary -->
-            <section>
-                <h2>Professional Summary</h2>
-                <p class="summary-text">
-                    Results-driven DevOps and Cloud Engineer with over 6 years of expertise designing, automating, and scaling robust cloud infrastructure across AWS and hybrid environments. Proven track record in container orchestration (ECS, Kubernetes), Infrastructure as Code (Terraform, CloudFormation), CI/CD pipeline automation (GitHub Actions, GitLab CI, Jenkins), and observability solutions. Adept at building resilient systems, improving deployment velocity, and bridging development and operations.
-                </p>
-            </section>
-            <!-- Technical Skills -->
-            <section>
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    <div><strong>Cloud Providers:</strong> AWS (ECS, EKS, EC2, S3, IAM, VPC, RDS, Lambda)</div>
-                    <div><strong>Containers & Orchestration:</strong> Docker, Kubernetes (K8s), AWS ECS Fargate</div>
-                    <div><strong>Infrastructure as Code:</strong> Terraform, OpenTofu, AWS CloudFormation</div>
-                    <div><strong>CI/CD & Version Control:</strong> GitHub Actions, GitLab CI, Jenkins, Git</div>
-                    <div><strong>Scripting & Configuration:</strong> Python, Bash, YAML, JSON, Ansible</div>
-                    <div><strong>Monitoring & Logging:</strong> Prometheus, Grafana, CloudWatch, Datadog</div>
-                </div>
-            </section>
-            <!-- Professional Experience -->
-            <section>
-                <h2>Professional Experience</h2>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <span>Senior DevOps / Cloud Engineer</span>
-                        <span>2023 – Present</span>
-                    </div>
-                    <div class="job-subheader">
-                        <span>Cloud Infrastructure Solutions</span>
-                        <span>Houston, TX</span>
-                    </div>
-                    <ul>
-                        <li>Architected and managed production-grade AWS environments utilizing Terraform, cutting infrastructure provisioning time by 50%.</li>
-                        <li>Implemented high-availability ECS Fargate microservices backed by Application Load Balancers (ALB) and dynamic target-tracking auto-scaling (2 to 6 tasks) driven by CPU metrics.</li>
-                        <li>Optimized CI/CD deployment pipelines using GitHub Actions, reducing release cycles from hours to under 10 minutes with zero-downtime rolling updates.</li>
-                        <li>Enhanced cluster reliability and application visibility through centralized CloudWatch log routing and custom Grafana/Prometheus dashboards.</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <div class="job-header">
-                        <span>DevOps Engineer</span>
-                        <span>2021 – 2023</span>
-                    </div>
-                    <div class="job-subheader">
-                        <span>Enterprise Systems & Automation Inc.</span>
-                        <span>Houston, TX</span>
-                    </div>
-                    <ul>
-                        <li>Migrated legacy monolithic workloads into containerized Docker applications deployed over AWS ECS and Kubernetes clusters.</li>
-                        <li>Automated server configuration management and security compliance checks utilizing Ansible playbooks and Bash scripting.</li>
-                        <li>Enforced rigorous security baseline standards across AWS IAM roles, security groups, and VPC network architectures, mitigating compliance risks.</li>
-                        <li>Collaborated closely with software development teams to troubleshoot container networking, database connectivity, and resource scaling constraints.</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <div class="job-header">
-                        <span>Junior Cloud Engineer</span>
-                        <span>2020 – 2021</span>
-                    </div>
-                    <div class="job-subheader">
-                        <span>TechOps Innovations</span>
-                        <span>Remote</span>
-                    </div>
-                    <ul>
-                        <li>Maintained cloud resources, monitored system performance matrices, and resolved routine infrastructure support tickets efficiently.</li>
-                        <li>Assisted senior engineers in writing basic Terraform templates and setting up Jenkins build jobs for internal staging environments.</li>
-                        <li>Authored comprehensive internal documentation regarding deployment workflows, disaster recovery protocols, and cloud resource inventories.</li>
-                    </ul>
-                </div>
-            </section>
-        </div>
-        <div>
-            <!-- Education & Certifications -->
-            <section>
-                <h2>Education & Certifications</h2>
-                <div class="job-header" style="margin-bottom: 2px;">
-                    <span><strong>Certifications:</strong> AWS Certified Solutions Architect – Professional | AWS Certified DevOps Engineer – Professional</span>
-                </div>
-                <div class="job-header">
-                    <span><strong>Education:</strong> Bachelor of Science in Computer Science / Information Technology</span>
-                    <span>2016 – 2020</span>
-                </div>
-            </section>
-        </div>
+<div class="resume">
+  <header>
+    <h1>ABDOUL AZIZ ABDOU</h1>
+    <div class="title">Cloud Engineer</div>
+    <div class="contact">
+      Lansdale, PA | 201-884-3096 | 
+      <a href="mailto:abdoumaiga111@gmail.com">abdoumaiga111@gmail.com</a> |
+      <a href="https://www.linkedin.com/in/abdoul-aziz-abdou-461686135" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/abdoumaiga1" target="_blank">GitHub</a>
     </div>
+  </header>
+
+  <hr>
+
+  <section>
+    <h2>Professional Summary</h2>
+    <p class="summary">
+      Cloud Engineer with 5+ years of experience designing, automating, and supporting AWS cloud infrastructure,
+      Linux environments, CI/CD platforms, and containerized workloads. Builds repeatable Terraform-provisioned
+      infrastructure and automated CI/CD pipelines that improve environment consistency and keep application delivery
+      reliable across development and production. Hands-on with AWS, Terraform, Ansible, Docker, ECS/Fargate,
+      GitHub Actions, Jenkins, and CloudWatch. Reduced manual administration steps by approximately 40% through
+      infrastructure and configuration automation. Known for strong ownership, practical problem-solving,
+      root-cause analysis, and building reliable, repeatable infrastructure through automation.
+    </p>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="skill"><b>Cloud &amp; AWS:</b> AWS, EC2, VPC, IAM, S3, ECR, ECS, Fargate, CloudWatch, Security Groups, Route 53, Lambda, CloudFront, WAF</div>
+      <div class="skill"><b>Infrastructure as Code:</b> Terraform, Ansible</div>
+      <div class="skill"><b>CI/CD &amp; DevOps:</b> GitHub Actions, Jenkins, AWS CodeBuild, Git, GitHub</div>
+      <div class="skill"><b>Containers &amp; Orchestration:</b> Docker, Kubernetes, Amazon ECS, AWS Fargate</div>
+      <div class="skill"><b>Linux Administration:</b> Ubuntu, Amazon Linux, Bash, SSH, systemd, users/groups, permissions, package management</div>
+      <div class="skill"><b>Networking &amp; Security:</b> TCP/IP, DNS, SSH, firewalls, IAM, access control, system hardening, patching</div>
+      <div class="skill"><b>Monitoring &amp; Observability:</b> Amazon CloudWatch, logging, metrics, alerting, troubleshooting</div>
+      <div class="skill"><b>Programming:</b> Python, Bash</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">CLOUD ENGINEER | iCARE MEDICAL</div>
+        <div class="date">2021 – Present | United States / Remote</div>
+      </div>
+      <ul>
+        <li>Designed and maintained AWS cloud infrastructure supporting application and development workloads, improving environment consistency and deployment reliability.</li>
+        <li>Administered Ubuntu and Amazon Linux servers, managing users, groups, permissions, SSH access, services, packages, logs, and system troubleshooting.</li>
+        <li>Automated AWS infrastructure provisioning with Terraform and server configuration with Ansible, reducing manual administration steps by approximately 40% and improving environment consistency.</li>
+        <li>Built and maintained CI/CD pipelines using GitHub Actions, Jenkins, Docker, and AWS services to support consistent application delivery.</li>
+        <li>Containerized applications with Docker, managed images through Amazon ECR, and supported production deployments on Amazon ECS and AWS Fargate.</li>
+        <li>Implemented Amazon CloudWatch dashboards, logging, and alerting to improve visibility into infrastructure and application health.</li>
+        <li>Applied IAM, SSH, access-control, patching, and Linux hardening practices to strengthen cloud security and operational reliability.</li>
+        <li>Used Git and GitHub for version control and Infrastructure as Code collaboration; investigated production incidents, performed root-cause analysis, and implemented corrective actions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected Projects</h2>
+    <div class="project">
+      <div class="project-head">
+        <div>Amazon ECS/Fargate Container Deployment</div>
+        <div class="project-date">2024</div>
+      </div>
+      <ul>
+        <li>Containerized a web application with Docker and published versioned images to Amazon ECR for cloud deployment.</li>
+        <li>Configured ECS/Fargate deployment components, AWS networking and security settings, ALB, HTTPS, Route 53, and autoscaling.</li>
+        <li class="impact"><b>Impact:</b> Demonstrates end-to-end container delivery from image build and registry publishing through managed AWS runtime execution.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>AWS CI/CD Automation Pipeline</div>
+        <div class="project-date">2024</div>
+      </div>
+      <ul>
+        <li>Built a GitHub Actions workflow integrating Git, Docker, Amazon ECR, and Amazon ECS.</li>
+        <li>Automated image builds, image publishing, ECS task-definition rendering, and ECS deployment.</li>
+        <li class="impact"><b>Impact:</b> Demonstrates automated application delivery from source control through container image publishing and ECS deployment.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>Linux &amp; Ansible Automation</div>
+        <div class="project-date">2023</div>
+      </div>
+      <ul>
+        <li>Automated Linux server setup with Ansible, including inventory, SSH, package installation, service configuration, and application deployment.</li>
+        <li>Used Ansible with Terraform to separate infrastructure provisioning from server configuration.</li>
+        <li class="impact"><b>Impact:</b> Reduced manual administration steps by approximately 40% through repeatable infrastructure and configuration workflows.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul class="simple-list">
+      <li>CompTIA Security+ — In Progress</li>
+      <li>AWS Solutions Architect – Associate — In Progress</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu-title">Bachelor’s Degree in Languages and Letters</div>
+      <div class="muted">Faculty of Letters, Languages and Language Sciences (FLSL), University of Letters and Social Sciences of Bamako (ULSHB), Mali — Graduated August 2014</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Professional Training</h2>
+    <div><b>Cloud &amp; DevOps Professional Training</b> — AWS, Terraform, Docker, Kubernetes, CI/CD, Linux, Ansible</div>
+    <div class="muted">September 2024 – Present</div>
+  </section>
+</div>
 </body>
 </html>
