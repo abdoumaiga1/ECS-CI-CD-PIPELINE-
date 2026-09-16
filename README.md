@@ -1,4 +1,88 @@
-# AWS ECS CI/CD Pipeline with Terraform
+## Architecture
+
+The application is deployed using a multi-AZ AWS architecture with ECS Fargate running in private subnets. Terraform provisions the infrastructure, while GitHub Actions automates container builds and deployments.
+
+```mermaid
+flowchart TB
+
+    Developer["Developer"] --> GitHub["GitHub Repository"]
+
+    GitHub --> Actions["GitHub Actions"]
+
+    Actions --> Build["Docker Build"]
+    Build --> ECR["Amazon ECR"]
+
+    Actions --> TaskDef["Update ECS Task Definition"]
+    ECR --> TaskDef
+
+    TaskDef --> ECS["Amazon ECS Fargate"]
+
+    subgraph AWS["AWS Cloud"]
+        
+        subgraph VPC["VPC"]
+            
+            IGW["Internet Gateway"]
+
+            subgraph AZ1["Availability Zone 1"]
+                Public1["Public Subnet"]
+                Private1["Private Subnet"]
+                Task1["ECS Fargate Task 1"]
+                NAT1["NAT Gateway"]
+                
+                Public1 --> NAT1
+                Private1 --> Task1
+                NAT1 --> IGW
+            end
+
+            subgraph AZ2["Availability Zone 2"]
+                Public2["Public Subnet"]
+                Private2["Private Subnet"]
+                Task2["ECS Fargate Task 2"]
+                NAT2["NAT Gateway"]
+
+                Public2 --> NAT2
+                Private2 --> Task2
+                NAT2 --> IGW
+            end
+
+            ALB["Application Load Balancer<br/>HTTPS :443"]
+
+            ALB --> Task1
+            ALB --> Task2
+
+        end
+
+        ECR
+        CloudWatch["Amazon CloudWatch"]
+        AutoScaling["ECS Auto Scaling<br/>Min: 2 | Max: 6 | CPU: 75%"]
+        Route53["Amazon Route 53"]
+        ACM["AWS Certificate Manager"]
+        Terraform["Terraform"]
+
+    end
+
+    ECS --> ALB
+    ECS --> AutoScaling
+    ECS --> CloudWatch
+
+    Users["Internet Users"] --> Route53
+    Route53 --> ACM
+    Route53 --> ALB
+
+    Terraform --> VPC
+    Terraform --> ECS
+    Terraform --> ECR
+    Terraform --> ALB
+    Terraform --> Route53
+
+    style AWS fill:#f5f7fa,stroke:#232f3e,stroke-width:2px
+    style VPC fill:#eef6ff,stroke:#0969da,stroke-width:2px
+    style ECS fill:#fff4e5,stroke:#ff9900,stroke-width:2px
+    style ECR fill:#fff4e5,stroke:#ff9900
+    style ALB fill:#e8f5e9,stroke:#1a7f37,stroke-width:2px
+    style Actions fill:#f3e8ff,stroke:#8250df,stroke-width:2px
+    style Terraform fill:#f3e8ff,stroke:#8250df,stroke-width:2px
+```# AWS ECS CI/CD Pipeline with Terraform
 
 ## Project Overview
 
